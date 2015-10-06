@@ -2,6 +2,7 @@
     'use strict';
 
     var JS_BASICS={};
+    var toto;
 
     JS_BASICS.isNumberEven = function(i) {
         // i will be an integer.
