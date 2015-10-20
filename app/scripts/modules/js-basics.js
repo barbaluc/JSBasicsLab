@@ -32,13 +32,12 @@
     JS_BASICS.isPalindrome = function(str) {
         // str will be an string
         // Return true if it is a palindrome and false otherwise. It should be case insensitive and not consider space or punctuation.
-        /*var result = str.toLowerCase().match(/[a-z]/gi).reverse();
-        return result.join('') === result.reverse().join('');*/
-        var strWithoutSpace = str.replace(/ /g,"");
+        str = str.replace(/ /g,"");
+        str = str.toLowerCase();
         var i1 = 0;
-        var i2 = strWithoutSpace.length - 1;
+        var i2 = str.length - 1;
         while (i2 > i1) {
-            if (strWithoutSpace[i1].toLowerCase() != strWithoutSpace[i2].toLowerCase()) {
+            if (str[i1] != str[i2]) {
                 return false;
             }
             ++i1;
