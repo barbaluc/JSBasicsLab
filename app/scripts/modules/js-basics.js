@@ -39,14 +39,24 @@
                 return false;
             }
         }*/
-        var cleaned = str.toLowerCase().match(/[a-z]/gi).reverse();
-        return cleaned.join('') === cleaned.reverse().join('');
+        var result = str.toLowerCase().match(/[a-z]/gi).reverse();
+        return result.join('') === result.reverse().join('');
 
     };
 
     JS_BASICS.nestedSum = function(arr) {
         // arr will be an array, containing integers, strings and/or arrays like itself
         // Return the sum all the numbers you find, anywhere in the nest of arrays.
+        var count = 0;
+        for(var i=0, n=arr.length; i < n; i++) { 
+            if (typeof arr[i] == "object") {
+                count += JS_BASICS.nestedSum(arr[i]);
+            }
+            if (Number.isInteger(arr[i])) {  
+                count += arr[i]; 
+            }
+        }
+        return count;
     };
 
     global.JS_BASICS = JS_BASICS;
